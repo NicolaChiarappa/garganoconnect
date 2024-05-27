@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@thaddeusjiang/react-hook-form": "^0.0.2-rc.1",
+    "firebase": "^10.12.2",
     "google-translate-api-browser": "^5.0.0",
     "i18next": "^23.11.5",
     "next": "14.2.3",

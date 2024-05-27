@@ -357,7 +357,13 @@ const Location = ({ nome, descrizione, immagine }) => {
           <h2 className='card-title'>{nome}</h2>
           <p>{descrizione}</p>
           <div className='card-actions justify-end'>
-            <Link className='btn btn-primary' href='/plans'>
+            <Link
+              className='btn btn-primary'
+              href='/plans'
+              onClick={() => {
+                localStorage.setItem("location", nome);
+              }}
+            >
               Discover
             </Link>
           </div>

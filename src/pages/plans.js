@@ -1,4 +1,6 @@
 import React, { use, useEffect, useState } from "react";
+import addLead from "@/firebase/database";
+import { useRouter } from "next/router";
 
 import { IoArrowBackOutline } from "react-icons/io5";
 
@@ -117,6 +119,7 @@ const Plan = ({ nome, oldprice, prezzo, vantaggi, func }) => {
               className='btn btn-primary self-end w-full'
               onClick={() => {
                 func();
+                localStorage.setItem("plan", nome);
               }}
             >
               I like it
@@ -138,6 +141,8 @@ const Form = ({ open, plan }) => {
     nazionalità: "",
   });
 
+  const router = useRouter();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -146,10 +151,21 @@ const Form = ({ open, plan }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data:", formData);
-    // Qui puoi aggiungere la logica per inviare i dati del form a un server
+
+    addLead(
+      formData.nome,
+      formData.cognome,
+      formData.email,
+      formData.telefono,
+      localStorage.getItem("location"),
+      localStorage.getItem("plan"),
+      formData.ruolo,
+      () => {
+        router.push("/");
+      }
+    );
   };
 
   console.log();
