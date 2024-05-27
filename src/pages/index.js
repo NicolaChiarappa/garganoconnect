@@ -84,47 +84,50 @@ const vantaggi = [
 
 const cities = [
   {
-    "nome": "Vieste",
+    "nome": "Villa Cristalda",
     "descrizione":
-      "Vieste, the pearl of Gargano, offers a breathtaking spectacle with its crystal-clear waters and unspoiled beaches. Explore its picturesque alleys and savor the true Apulian hospitality.",
-    "immagine": "baiadellezagare.webp",
-    "url": "https://google.com",
+      "Villa Cristalda is a charming residence in Vieste, ideal for digital nomads and remote workers. Surrounded by a lush Mediterranean garden, it offers a serene and relaxing environment to work and live. With 8 beds and cozy common spaces, it fosters a vibrant community of professionals and travel enthusiasts.",
+    "images": [
+      "cristalda/1.webp",
+      "cristalda/2.webp",
+      "cristalda/3.webp",
+      "cristalda/4.webp",
+      "cristalda/5.webp",
+      "cristalda/6.webp",
+      "cristalda/7.webp",
+      "cristalda/8.webp",
+      "cristalda/9.webp",
+    ],
+
+    "città": "Vieste",
   },
   {
-    "nome": "Peschici",
+    "nome": "Villa il Trabucco",
     "descrizione":
-      "Peschici, a gem nestled between the sea and mountains, enchants you with its medieval historic center and stunning panoramic views of the Gargano coast. Immerse yourself in its timeless atmosphere.",
-    "immagine": "baiadellezagare.webp",
-    "url": "https://google.com",
+      "Situated in Peschici, Villa il Trabucco is an oasis of tranquility for digital nomads and remote workers. With a spacious panoramic garden and 6 comfortable beds, it provides an ideal setting for work and relaxation. The common areas encourage the creation of a community of professionals and travelers.",
+    "images": [
+      "trabucco/1.webp",
+      "trabucco/2.webp",
+      "trabucco/3.webp",
+      "trabucco/4.webp",
+    ],
+
+    "città": "Peschici",
   },
-  // {
-  //   "nome": "Mattinata",
-  //   "descrizione":
-  //     "Mattinata, a delightful seaside town, will captivate you with its stunning golden beaches and authentic culinary traditions. Discover the true flavors of Gargano.",
-  //   "immagine": "baiadellezagare.webp",
-  //   "url": "https://google.com",
-  // },
   {
-    "nome": "San Severo",
+    "nome": "Villa Tremiti",
     "descrizione":
-      "San Severo, a crossroads of culture and traditions, will welcome you with its warm hospitality and architectural treasures. Explore its Baroque churches and extraordinary museums.",
-    "immagine": "baiadellezagare.webp",
-    "url": "https://google.com",
+      "Villa Tremiti is an exclusive residence in Vieste, perfect for digital nomads and remote workers. With a stunning garden and 8 beds, it offers an ideal environment to work and live in harmony. The common areas promote the creation of a vibrant community of professionals and travel enthusiasts.",
+    "images": [
+      "tremiti/1.webp",
+      "tremiti/2.webp",
+      "tremiti/3.webp",
+      "tremiti/4.webp",
+      "tremiti/5.webp",
+    ],
+
+    "città": "Vieste",
   },
-  // {
-  //   "nome": "Vico del Gargano",
-  //   "descrizione":
-  //     "Vico del Gargano, a peaceful corner immersed in the unspoiled nature of the Gargano National Park. Discover panoramic trails, crystal-clear waterfalls, and an oasis of tranquility.",
-  //   "immagine": "baiadellezagare.webp",
-  //   "url": "https://google.com",
-  // },
-  // {
-  //   "nome": "Rodi Garganico",
-  //   "descrizione":
-  //     "Rodi Garganico, a city rich in history and traditions, will welcome you with its golden beaches and ancient monuments. Immerse yourself in its Mediterranean atmosphere and let its charm captivate you.",
-  //   "immagine": "baiadellezagare.webp",
-  //   "url": "https://google.com",
-  // },
 ];
 
 const Page = () => {
@@ -146,6 +149,9 @@ const Page = () => {
             <h2 className='mb-5 font-bold leading-relaxed'>
               Your office.<br className='lg:hidden'></br> A paradise.
             </h2>
+            <h2 className='mb-5 font-normal leading-relaxed'>
+              Your best coliving experience.
+            </h2>
             <a
               href='#features'
               className='max-lg:hidden btn btn-primary btn-lg font-bold'
@@ -161,11 +167,98 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <Why />
       <Vantaggi />
       <VantaggiMobile />
       <Come />
       <Locations />
+      <Modal i={0} />
+      <Modal i={1} />
+      <Modal i={2} />
     </>
+  );
+};
+
+const Why = () => {
+  return (
+    <div className='flex justify-center max-lg:flex-col lg:text-2xl gap-16 mt-10 max-lg:px-10 text-lg'>
+      <div className='flex flex-col gap-4'>
+        <h2 className='text-3xl font-extrabold text-gray-900 mb-4'>
+          Why Gargano?
+        </h2>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>🏞️</p>
+          <p className='opacity-100 font-medium'>Peace away from city chaos.</p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>☀️</p>
+          <p className='opacity-100 font-medium'>277 sunny days per year.</p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>🍝</p>
+          <p className='opacity-100 font-medium'>
+            Delicious, genuine traditional cuisine.
+          </p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>💰</p>
+          <p className='opacity-100 font-medium'>
+            Incredibly low cost of living.
+          </p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>🔥</p>
+          <p className='opacity-100 font-medium'>
+            Authentic folklore and traditions.
+          </p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>👥</p>
+          <p className='opacity-100 font-medium'>
+            Hospitable people, like a family.
+          </p>
+        </div>
+      </div>
+      <div className='flex flex-col gap-4'>
+        <h2 className='text-3xl font-extrabold text-gray-900 mb-4'>Why us?</h2>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>🧳</p>
+          <p className='opacity-100 font-medium'>
+            We organize everything, you just live.
+          </p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>🤝</p>
+          <p className='opacity-100 font-medium'>
+            We create a community of people.
+          </p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>⛰️</p>
+          <p className='opacity-100 font-medium'>
+            Explore the territory with us.
+          </p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>💻</p>
+          <p className='opacity-100 font-medium'>
+            Perfectly equipped work environments.
+          </p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>🌴</p>
+          <p className='opacity-100 font-medium'>
+            We know this paradise perfectly
+          </p>
+        </div>
+        <div className='flex flex-row items-start'>
+          <p className='opacity-100 font-medium mr-2'>✨</p>
+          <p className='opacity-100 font-medium'>
+            Live a unique, unforgettable experience.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -328,11 +421,11 @@ const Locations = () => {
         {cities.map((c, i) => {
           return (
             <Location
+              i={i}
               key={i}
-              immagine={"/" + c.immagine}
+              immagine={"/" + c.images[0]}
               nome={c.nome}
               descrizione={c.descrizione}
-              url={c.url}
             ></Location>
           );
         })}
@@ -341,9 +434,9 @@ const Locations = () => {
   );
 };
 
-const Location = ({ nome, descrizione, immagine }) => {
+const Location = ({ i, nome, descrizione, immagine }) => {
   return (
-    <button className='carousel-item '>
+    <div className='carousel-item '>
       <div className='card card-compact lg:w-80 w-72 bg-base-100 shadow-xl  h-full'>
         <div className='w-full h-64 overflow-hidden rounded-lg shadow-lg relative'>
           <Image
@@ -357,19 +450,56 @@ const Location = ({ nome, descrizione, immagine }) => {
           <h2 className='card-title'>{nome}</h2>
           <p>{descrizione}</p>
           <div className='card-actions justify-end'>
-            <Link
+            <button
               className='btn btn-primary'
-              href='/plans'
               onClick={() => {
+                console.log(i);
                 localStorage.setItem("location", nome);
+                console.log(document.getElementById(i));
+                document.getElementById(i).showModal();
               }}
             >
               Discover
-            </Link>
+            </button>
           </div>
         </div>
       </div>
-    </button>
+    </div>
+  );
+};
+
+const Modal = ({ i }) => {
+  return (
+    <dialog id={i} className='modal'>
+      <div className='modal-box max-w-full  lg:px-52'>
+        <form method='dialog'>
+          {/* if there is a button in form, it will close the modal */}
+          <button className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'>
+            ✕
+          </button>
+        </form>
+        <h3 className='font-bold text-lg'>{cities[i].nome}</h3>
+        <div className='carousel w-full lg:h-[70vh] h-[40vh] gap-5 lg:gap-28'>
+          {cities[i].images.map((img, k) => {
+            return (
+              <div key={k} className='carousel-item relative w-[80%] '>
+                <Image
+                  src={"/" + img}
+                  alt='Descrizione immagine 1'
+                  fill
+                  className=' object-cover'
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div className='w-full flex justify-end'>
+          <Link className='btn btn-primary btn-md ' href={"plans"}>
+            Proceed
+          </Link>
+        </div>
+      </div>
+    </dialog>
   );
 };
 
