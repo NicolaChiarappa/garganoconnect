@@ -108,7 +108,7 @@ const Plan = ({ nome, oldprice, prezzo, vantaggi, func }) => {
             <span className='font-bold text-2xl strike'>{"€" + oldprice}</span>
           </p>
           <p className='text-left'>
-            <span className='font-black text-3xl text-red-800'>
+            <span className='font-black text-3xl text-green-700'>
               {"€" + prezzo}
             </span>
           </p>
