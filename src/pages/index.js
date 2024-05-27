@@ -253,8 +253,8 @@ const VantaggiMobile = () => {
         return (
           <VantaggioMobile
             key={i}
-            Title={v.Titolo.it}
-            Description={v.Descrizione.it}
+            Title={v.Titolo.en}
+            Description={v.Descrizione.en}
             Immagine={v.Immagine}
           ></VantaggioMobile>
         );
