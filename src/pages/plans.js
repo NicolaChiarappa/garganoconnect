@@ -108,7 +108,9 @@ const Plan = ({ nome, oldprice, prezzo, vantaggi, func }) => {
             <span className='font-bold text-2xl strike'>{"€" + oldprice}</span>
           </p>
           <p className='text-left'>
-            <span className='font-bold text-2xl'>{"€" + prezzo}</span>
+            <span className='font-black text-3xl text-red-800'>
+              {"€" + prezzo}
+            </span>
           </p>
           <div className='w-full flex justify-center'>
             <button
