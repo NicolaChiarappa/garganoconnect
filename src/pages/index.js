@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
 const vantaggi = [
   {
     "Titolo": {
@@ -81,54 +82,55 @@ const vantaggi = [
   },
 ];
 
-const Città = [
+const cities = [
   {
     "nome": "Vieste",
     "descrizione":
-      "Vieste, la perla del Gargano, offre uno spettacolo mozzafiato con le sue acque cristalline e le sue spiagge incontaminate. Esplora le sue pittoresche viuzze e assapora la vera ospitalità pugliese.",
+      "Vieste, the pearl of Gargano, offers a breathtaking spectacle with its crystal-clear waters and unspoiled beaches. Explore its picturesque alleys and savor the true Apulian hospitality.",
     "immagine": "baiadellezagare.webp",
     "url": "https://google.com",
   },
   {
     "nome": "Peschici",
     "descrizione":
-      "Peschici, un gioiello incastonato tra il mare e le montagne, ti incanta con il suo centro storico medievale e i panorami mozzafiato sulla costa del Gargano. Immergiti nella sua atmosfera senza tempo.",
+      "Peschici, a gem nestled between the sea and mountains, enchants you with its medieval historic center and stunning panoramic views of the Gargano coast. Immerse yourself in its timeless atmosphere.",
     "immagine": "baiadellezagare.webp",
     "url": "https://google.com",
   },
-  {
-    "nome": "Mattinata",
-    "descrizione":
-      "Mattinata, una deliziosa cittadina affacciata sul mare, ti conquisterà con le sue splendide spiagge dorate e la sua tradizione culinaria autentica. Scopri il vero sapore del Gargano.",
-    "immagine": "baiadellezagare.webp",
-    "url": "https://google.com",
-  },
+  // {
+  //   "nome": "Mattinata",
+  //   "descrizione":
+  //     "Mattinata, a delightful seaside town, will captivate you with its stunning golden beaches and authentic culinary traditions. Discover the true flavors of Gargano.",
+  //   "immagine": "baiadellezagare.webp",
+  //   "url": "https://google.com",
+  // },
   {
     "nome": "San Severo",
     "descrizione":
-      "San Severo, un crocevia di cultura e tradizioni, ti accoglierà con la sua ospitalità calorosa e i suoi tesori architettonici. Esplora le sue chiese barocche e i suoi musei straordinari.",
+      "San Severo, a crossroads of culture and traditions, will welcome you with its warm hospitality and architectural treasures. Explore its Baroque churches and extraordinary museums.",
     "immagine": "baiadellezagare.webp",
     "url": "https://google.com",
   },
-  {
-    "nome": "Vico del Gargano",
-    "descrizione":
-      "Vico del Gargano, un angolo di pace immerso nella natura incontaminata del Parco Nazionale del Gargano. Scopri sentieri panoramici, cascate cristalline e un'oasi di tranquillità.",
-    "immagine": "baiadellezagare.webp",
-    "url": "https://google.com",
-  },
-  {
-    "nome": "Rodi Garganico",
-    "descrizione":
-      "Rodi Garganico, una città ricca di storia e tradizioni, ti accoglierà con le sue spiagge dorate e i suoi monumenti antichi. Immergiti nella sua atmosfera mediterranea e lasciati conquistare dal suo fascino.",
-    "immagine": "baiadellezagare.webp",
-    "url": "https://google.com",
-  },
+  // {
+  //   "nome": "Vico del Gargano",
+  //   "descrizione":
+  //     "Vico del Gargano, a peaceful corner immersed in the unspoiled nature of the Gargano National Park. Discover panoramic trails, crystal-clear waterfalls, and an oasis of tranquility.",
+  //   "immagine": "baiadellezagare.webp",
+  //   "url": "https://google.com",
+  // },
+  // {
+  //   "nome": "Rodi Garganico",
+  //   "descrizione":
+  //     "Rodi Garganico, a city rich in history and traditions, will welcome you with its golden beaches and ancient monuments. Immerse yourself in its Mediterranean atmosphere and let its charm captivate you.",
+  //   "immagine": "baiadellezagare.webp",
+  //   "url": "https://google.com",
+  // },
 ];
 
-const page = () => {
+const Page = () => {
   return (
     <>
+      <Navbar />
       <div
         className='hero min-h-screen'
         style={{
@@ -138,23 +140,23 @@ const page = () => {
         <div className='hero-overlay bg-opacity-60'></div>
         <div className='hero-content text-center text-neutral-content'>
           <div className=' h-fit  '>
-            <h1 className='mb-5  lg:leading-normal leading-none'>
+            <h1 data-translate className='mb-5  lg:leading-normal leading-none'>
               Gargano<br className='lg:hidden'></br>Connect
             </h1>
             <h2 className='mb-5 font-bold leading-relaxed'>
-              Il tuo ufficio.<br className='lg:hidden'></br> In paradiso.
+              Your office.<br className='lg:hidden'></br> A paradise.
             </h2>
             <a
               href='#features'
               className='max-lg:hidden btn btn-primary btn-lg font-bold'
             >
-              Scopri come
+              Find out how
             </a>
             <a
               href='#featuresmobile'
               className='lg:hidden btn btn-primary btn-lg font-bold'
             >
-              Scopri come
+              Find out how
             </a>
           </div>
         </div>
@@ -174,8 +176,8 @@ const Vantaggi = () => {
         return (
           <Vantaggio
             key={i}
-            Title={v.Titolo.it}
-            Description={v.Descrizione.it}
+            Title={v.Titolo.en}
+            Description={v.Descrizione.en}
             i={i}
             Immagine={v.Immagine}
           />
@@ -280,48 +282,50 @@ const VantaggioMobile = ({ Title, Description, Immagine }) => {
 
 const Come = () => {
   return (
-    <div className='flex  flex-col items-center h-fit  my-24'>
-      <h2 className='font-bold mb-10'>Come funziona?</h2>
+    <div className='flex flex-col items-center h-fit my-24'>
+      <h2 className='font-bold mb-10'>How does it work?</h2>
       <ul className='timeline timeline-vertical mb-10'>
         <li>
-          <div className='timeline-start timeline-box'>Scegli la location</div>
+          <div className='timeline-start timeline-box'>Choose the location</div>
           <hr />
         </li>
         <li>
           <hr />
-          <div className='timeline-end timeline-box'>Scegli il pacchetto</div>
+          <div className='timeline-end timeline-box'>Choose the package</div>
           <hr />
         </li>
         <li>
           <hr />
           <div className='timeline-start timeline-box'>
-            Ti contattiamo <br></br>per confermare i tuoi dati
+            We contact you <br></br>to confirm your details
           </div>
           <hr />
         </li>
         <li>
           <hr />
           <div className='timeline-end timeline-box'>
-            Paghi in tutta sicurezza con Stripe
+            Pay securely with Stripe
           </div>
           <hr />
         </li>
         <li>
           <hr />
-          <div className='timeline-start timeline-box'>Vivi il tuo sogno</div>
+          <div className='timeline-start timeline-box'>Live your dream</div>
         </li>
       </ul>
-      <h2 className='font-medium lg:text-3xl text-2xl'>Semplice no?</h2>
+      <h2 className='font-medium lg:text-3xl text-2xl'>
+        {"Couldn't be easier, right?"}
+      </h2>
     </div>
   );
 };
 
 const Locations = () => {
   return (
-    <div className='flex flex-col items-center'>
-      <h2 className='font-bold mb-10'>Le nostre locations</h2>
-      <div className='carousel carousel-center max-lg:w-[95%] w-4/5 p-4 space-x-4 bg-slate-200 rounded-box'>
-        {Città.map((c, i) => {
+    <div className='flex flex-col items-center' id='locations'>
+      <h2 className='font-bold mb-10'>Our locations</h2>
+      <div className='carousel carousel-center max-lg:w-[95%] max-w-4/5 p-4 space-x-4 bg-slate-200 rounded-box'>
+        {cities.map((c, i) => {
           return (
             <Location
               key={i}
@@ -337,10 +341,10 @@ const Locations = () => {
   );
 };
 
-const Location = ({ nome, descrizione, immagine, url }) => {
+const Location = ({ nome, descrizione, immagine }) => {
   return (
-    <a className='carousel-item' href={url}>
-      <div className='card card-compact lg:w-80 w-72 bg-base-100 shadow-xl  '>
+    <button className='carousel-item '>
+      <div className='card card-compact lg:w-80 w-72 bg-base-100 shadow-xl  h-full'>
         <div className='w-full h-64 overflow-hidden rounded-lg shadow-lg relative'>
           <Image
             src={immagine}
@@ -353,12 +357,14 @@ const Location = ({ nome, descrizione, immagine, url }) => {
           <h2 className='card-title'>{nome}</h2>
           <p>{descrizione}</p>
           <div className='card-actions justify-end'>
-            <button className='btn btn-primary'>Buy Now</button>
+            <Link className='btn btn-primary' href='/plans'>
+              Discover
+            </Link>
           </div>
         </div>
       </div>
-    </a>
+    </button>
   );
 };
 
-export default page;
+export default Page;
